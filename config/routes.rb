@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  namespace :dashboard do
+    get "customer/:id", to: "customers#show", as: :customer
+    get "barber/:id", to: "barbers#show", as: :barber
+    get "barber_shop/:id", to: "barber_shops#show", as: :barber_shop
+  end
+
+  devise_for :barber_shops, controllers: {
+    registrations: "barber_shops/registrations"
+  }
+
+  devise_for :barbers, controllers: {
+    registrations: "barbers/registrations"
+  }
+
+  devise_for :customers, controllers: {
+    registrations: "customers/registrations"
+  }
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -10,5 +28,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "posts#index"
 end
