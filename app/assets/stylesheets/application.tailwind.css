@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+dialog::backdrop {
+  @apply bg-black bg-opacity-50;
+}
+
 /*
 
 @layer components {
