@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "customer/show"
   namespace :dashboard do
     get "customer/:id", to: "customers#show", as: :customer
     get "barber/:id", to: "barbers#show", as: :barber
@@ -28,5 +29,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "posts#index"
+  root "welcome#index"
 end
