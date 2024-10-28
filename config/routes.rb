@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get "customer/show"
-  namespace :dashboard do
-    get "customer/:id", to: "customers#show", as: :customer
-    get "barber/:id", to: "barbers#show", as: :barber
-    get "barber_shop/:id", to: "barber_shops#show", as: :barber_shop
+  scope :dashboard do
+    resources :customer, only: %i[show]
   end
+
 
   devise_for :barber_shops, controllers: {
     registrations: "barber_shops/registrations"
