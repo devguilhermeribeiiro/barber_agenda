@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  barber: one
+  barber_shop: one
+
+two:
+  customer: two
+  barber: two
+  barber_shop: two
