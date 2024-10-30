@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  scope :dashboard do
-    resources :customer, only: %i[show]
+  resources :customer, only: %i[show] do
+    member do
+      resources :schedulings
+    end
   end
 
+  resources :barber, only: %i[show] do
+    member do
+      resources :schedulings
+    end
+  end
 
-  devise_for :barber_shops, controllers: {
-    registrations: "barber_shops/registrations"
-  }
-
-  devise_for :barbers, controllers: {
+  devise_for :barber, controllers: {
     registrations: "barbers/registrations"
   }
 
