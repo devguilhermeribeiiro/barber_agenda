@@ -1,0 +1,16 @@
+<% if notice.present? %>
+  <%= notice %>
+<% end %>
+
+<%= params %>
+
+<div data-controller="modal">
+  <button data-action="modal#open">Agendar Corte</button>
+
+  <dialog  data-modal-target="dialog">
+    <%= render template: "home/new", locals: { scheduling: @scheduling } %>
+
+    <button data-action="modal#close">Cancelar</button>
+  </dialog>
+</div>
+

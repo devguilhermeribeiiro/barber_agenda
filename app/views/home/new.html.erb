@@ -1,0 +1,18 @@
+<%= form_with(scope: :scheduling, url: home_index_path, method: :post) do |form| %>
+  <%= form.hidden_field :barber_id, value: @barber.id %>
+
+  <div>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :time %>
+    <%= form.time_field :time %>
+  </div>
+
+  <div>
+    <%= form.submit "Schedule" %>
+  </div>
+<% end %>
+
