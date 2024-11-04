@@ -1,6 +1,6 @@
 <%= render HeaderComponent.new(path: root_path) do %>
   <%= render NavbarComponent.new(links: [
-    { name: "Agende seu corte", path: customer_path },
-    { name: "Cadastre sua barbearia", path: barber_path }
+    { name: "Agende seu corte", path: home_index_path },
+    { name: "Cadastre sua barbearia", path: barber_index_path }
   ]) %>
 <% end %>
