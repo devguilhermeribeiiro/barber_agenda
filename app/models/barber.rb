@@ -4,5 +4,5 @@ class Barber < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :barber_shop
+  has_many :schedulings
 end
