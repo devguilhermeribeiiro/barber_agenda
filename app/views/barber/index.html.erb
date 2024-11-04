@@ -1,0 +1,5 @@
+<%= render HeaderComponent.new(path: barber_index_path) do %>
+  <%= render NavbarComponent.new(links: [name: "Profile", path: barber_url(current_barber.id)]) do %>
+    <%= render ButtonToComponent.new("Logout", destroy_barber_session_path, :delete) %>
+  <% end %>
+<% end %>
