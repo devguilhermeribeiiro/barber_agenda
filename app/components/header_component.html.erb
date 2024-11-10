@@ -1,7 +1,11 @@
-<%= tag.header class: "header" do %>
-  <%= tag.h1 do %>
-    <%= link_to "Barber Agenda", @path %>
-  <% end %>
+<%= tag.header class: "fixed top-0 left-0 z-50 w-full p-12 mb-16" do %>
+  <nav class="flex flex-row justify-between">
+    <%= tag.h1 do %>
+      <%= link_to "Barber Agenda", @path %>
+    <% end %>
 
-  <%= content %>
+    <div>
+      <%= content %>
+    </div>
+  </nav>
 <% end %>
