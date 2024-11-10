@@ -1,9 +1,8 @@
-<%= render HeaderComponent.new(path: customer_index_path) do %>
-  <%= render NavbarComponent.new(links: [name: "Profile", path: customer_url(current_customer.id)]) do %>
+<%= render HeaderComponent.new(path: home_index_path) do %>
+  <%= render NavbarComponent.new(links: [name: "Profile", path: customer_url(current_customer.id)], resource: current_customer) do %>
     <%= render ButtonToComponent.new("Logout", destroy_customer_session_path, :delete) %>
   <% end %>
 <% end %>
-
 
 <% @barbers.each do |barber| %>
   <%= link_to home_path(barber) do %>
@@ -13,4 +12,3 @@
     <% end %>
   <% end %>
 <% end %>
-
