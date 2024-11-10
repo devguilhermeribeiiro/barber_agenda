@@ -10,9 +10,14 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |customer|
+      if customer.persisted?
+        sign_in(customer)
+        redirect_to customer_index_path and return
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -38,7 +43,7 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -51,9 +56,9 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    customer_index_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

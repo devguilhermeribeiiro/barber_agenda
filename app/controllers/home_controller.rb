@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def index
     @barbers = Barber.all
+    @schedulings = current_customer.schedulings.sort_by(&:created_at).reverse
   end
 
   def show
