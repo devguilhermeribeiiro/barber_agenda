@@ -1,0 +1,12 @@
+<aside id="sidebar">
+  <div>
+    <h1><%= @title %></h1>
+  </div>
+
+  <nav>
+    <% @links.each do |link| %>
+      <p><%= link_to link[:name], link[:path] %></p>
+    <% end %>
+
+  </nav>
+</aside>
